@@ -1,0 +1,38 @@
+﻿@model List<BookGenre>
+<div class="container">
+    <div class="row pt-3 pb-4">
+        <div>
+            <h1>Kitap Türleri</h1>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Kitap Türü
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bookGenre in Model)
+            {
+                <tr>
+                    <td>@bookGenre.Id</td>
+                    <td>@bookGenre.Name</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <div class="row pt-3 pb-2">
+        <div>
+            <a asp-controller="BookGenre" asp-action="newGenreAdd" class="btn btn-lg btn-primary" type="button">
+                Yeni Kitap Türü Oluştur
+            </a>
+        </div>
+    </div>
+</div>
+
