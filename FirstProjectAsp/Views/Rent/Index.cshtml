@@ -1,0 +1,62 @@
+﻿@model List<Rent>
+@if (TempData["basarili"]!= null)
+{
+    <h2 style="color:grey">@TempData["basarili"]</h2>
+}
+<div class="container">
+    <div class="row pt-3 pb-4">
+        <div>
+            <h1>Kiralama Listesi</h1>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Öğrenci Id
+                </th>
+                <th>
+                    Kitap Id
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rent in Model)
+            {
+                <tr>
+                    <td>@rent.Id</td>
+                    <td>@rent.OgrenciId</td>
+                    <td>@rent.Book.BookName</td>
+                    <td>
+                        <a asp-controller="Rent" asp-action="newAddUpdate" asp-route-id="@rent.Id" type="button" class="btn btn-success" style="width:250px">
+                        Güncelle
+                    </a>
+                    </td>
+                    <td>
+                        <a asp-controller="Rent" asp-action="delete" asp-route-id="@rent.Id"  type="button" class="btn btn-danger" style="width:250px">
+                            Sil
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <div class="row pt-3 pb-2">
+        <div>
+            <a asp-controller="Rent" asp-action="newAddUpdate" class="btn btn-lg btn-primary" type="button">
+                Yeni Kiralama Oluştur
+            </a>
+        </div>
+    </div>
+</div>
+

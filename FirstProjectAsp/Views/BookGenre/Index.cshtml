@@ -1,4 +1,8 @@
 ﻿@model List<BookGenre>
+@if (TempData["basarili"]!= null)
+{
+    <h2 style="color:grey">@TempData["basarili"]</h2>
+}
 <div class="container">
     <div class="row pt-3 pb-4">
         <div>
@@ -14,6 +18,10 @@
                 <th>
                     Kitap Türü
                 </th>
+                <th>
+                </th>
+                <th>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +30,16 @@
                 <tr>
                     <td>@bookGenre.Id</td>
                     <td>@bookGenre.Name</td>
+                    <td>
+                        <a asp-controller="BookGenre" asp-action="updateGenre" asp-route-id="@bookGenre.Id" type="button" class="btn btn-success" style="width:250px">
+                        Güncelle
+                    </a>
+                    </td>
+                    <td>
+                        <a asp-controller="BookGenre" asp-action="deleteGenre" asp-route-id="@bookGenre.Id"  type="button" class="btn btn-danger" style="width:250px">
+                            Sil
+                        </a>
+                    </td>
                 </tr>
             }
         </tbody>

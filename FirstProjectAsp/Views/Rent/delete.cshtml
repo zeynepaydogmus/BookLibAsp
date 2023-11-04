@@ -1,0 +1,31 @@
+﻿@model Rent
+
+<form method="post">
+    <div class="border p-3 mt-5">
+        <div class="row pb-3">
+            <h2 class="text-primary"> Kiralama Kayıt Sil </h2>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="OgrenciId" class="p-0"></label>
+            <input asp-for="OgrenciId" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="BookId" class="p-0"></label>
+            <select asp-for="BookId" asp-items="ViewBag.BookList" disabled class="form-select">
+            </select>
+            <span asp-validation-for="BookId" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary" style="width:200px">
+            Sil
+        </button>
+        <a asp-controller="Rent" asp-action="Index" class="btn btn-lg btn-primary" style="width:250px">
+            Kiralama Listesi
+        </a>
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
